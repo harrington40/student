@@ -1,0 +1,705 @@
+
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "students",
+    "version": "0.0.1",
+    "description": "students",
+    "contact": {
+      "name": "Harrington",
+      "email": "harrington.ricks@live.com"
+    }
+  },
+  "paths": {
+    "/infos/count": {
+      "get": {
+        "x-controller-name": "InfoController",
+        "x-operation-name": "count",
+        "tags": [
+          "InfoController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Info model count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "Info.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<Info>"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "InfoController.count"
+      }
+    },
+    "/infos/{id}": {
+      "put": {
+        "x-controller-name": "InfoController",
+        "x-operation-name": "replaceById",
+        "tags": [
+          "InfoController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Info PUT success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Info"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "InfoController.replaceById"
+      },
+      "patch": {
+        "x-controller-name": "InfoController",
+        "x-operation-name": "updateById",
+        "tags": [
+          "InfoController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Info PATCH success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/InfoPartial"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "InfoController.updateById"
+      },
+      "get": {
+        "x-controller-name": "InfoController",
+        "x-operation-name": "findById",
+        "tags": [
+          "InfoController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Info model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InfoWithRelations"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Info.Filter"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "InfoController.findById"
+      },
+      "delete": {
+        "x-controller-name": "InfoController",
+        "x-operation-name": "deleteById",
+        "tags": [
+          "InfoController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Info DELETE success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          }
+        ],
+        "operationId": "InfoController.deleteById"
+      }
+    },
+    "/infos": {
+      "post": {
+        "x-controller-name": "InfoController",
+        "x-operation-name": "create",
+        "tags": [
+          "InfoController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Info model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Info"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewInfo"
+              }
+            }
+          }
+        },
+        "operationId": "InfoController.create"
+      },
+      "patch": {
+        "x-controller-name": "InfoController",
+        "x-operation-name": "updateAll",
+        "tags": [
+          "InfoController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Info PATCH success count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "Info.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<Info>"
+                }
+              }
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/InfoPartial"
+              }
+            }
+          }
+        },
+        "operationId": "InfoController.updateAll"
+      },
+      "get": {
+        "x-controller-name": "InfoController",
+        "x-operation-name": "find",
+        "tags": [
+          "InfoController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Array of Info model instances",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/InfoWithRelations"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Info.Filter1"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "InfoController.find"
+      }
+    },
+    "/ping": {
+      "get": {
+        "x-controller-name": "PingController",
+        "x-operation-name": "ping",
+        "tags": [
+          "PingController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Ping Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PingResponse"
+                }
+              }
+            }
+          }
+        },
+        "operationId": "PingController.ping"
+      }
+    }
+  },
+  "servers": [
+    {
+      "url": "/"
+    }
+  ],
+  "components": {
+    "schemas": {
+      "Info": {
+        "title": "Info",
+        "type": "object",
+        "properties": {
+          "fname": {
+            "type": "string"
+          },
+          "lname": {
+            "type": "string"
+          },
+          "addr": {
+            "type": "string"
+          },
+          "city": {
+            "type": "string"
+          },
+          "state": {
+            "type": "string"
+          },
+          "country": {
+            "type": "string"
+          },
+          "DOB": {
+            "type": "string"
+          },
+          "date": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "required": [
+          "lname"
+        ],
+        "additionalProperties": false
+      },
+      "NewInfo": {
+        "title": "NewInfo",
+        "type": "object",
+        "description": "(tsType: Omit<Info, >, schemaOptions: { title: 'NewInfo', exclude: [] })",
+        "properties": {
+          "fname": {
+            "type": "string"
+          },
+          "lname": {
+            "type": "string"
+          },
+          "addr": {
+            "type": "string"
+          },
+          "city": {
+            "type": "string"
+          },
+          "state": {
+            "type": "string"
+          },
+          "country": {
+            "type": "string"
+          },
+          "DOB": {
+            "type": "string"
+          },
+          "date": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "required": [
+          "lname"
+        ],
+        "additionalProperties": false,
+        "x-typescript-type": "Omit<Info, >"
+      },
+      "InfoWithRelations": {
+        "title": "InfoWithRelations",
+        "type": "object",
+        "description": "(tsType: InfoWithRelations, schemaOptions: { includeRelations: true })",
+        "properties": {
+          "fname": {
+            "type": "string"
+          },
+          "lname": {
+            "type": "string"
+          },
+          "addr": {
+            "type": "string"
+          },
+          "city": {
+            "type": "string"
+          },
+          "state": {
+            "type": "string"
+          },
+          "country": {
+            "type": "string"
+          },
+          "DOB": {
+            "type": "string"
+          },
+          "date": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "required": [
+          "lname"
+        ],
+        "additionalProperties": false,
+        "x-typescript-type": "InfoWithRelations"
+      },
+      "InfoPartial": {
+        "title": "InfoPartial",
+        "type": "object",
+        "description": "(tsType: Partial<Info>, schemaOptions: { partial: true })",
+        "properties": {
+          "fname": {
+            "type": "string"
+          },
+          "lname": {
+            "type": "string"
+          },
+          "addr": {
+            "type": "string"
+          },
+          "city": {
+            "type": "string"
+          },
+          "state": {
+            "type": "string"
+          },
+          "country": {
+            "type": "string"
+          },
+          "DOB": {
+            "type": "string"
+          },
+          "date": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "Partial<Info>"
+      },
+      "loopback.Count": {
+        "type": "object",
+        "title": "loopback.Count",
+        "x-typescript-type": "@loopback/repository#Count",
+        "properties": {
+          "count": {
+            "type": "number"
+          }
+        }
+      },
+      "Info.Filter": {
+        "type": "object",
+        "title": "Info.Filter",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "fname": {
+                    "type": "boolean"
+                  },
+                  "lname": {
+                    "type": "boolean"
+                  },
+                  "addr": {
+                    "type": "boolean"
+                  },
+                  "city": {
+                    "type": "boolean"
+                  },
+                  "state": {
+                    "type": "boolean"
+                  },
+                  "country": {
+                    "type": "boolean"
+                  },
+                  "DOB": {
+                    "type": "boolean"
+                  },
+                  "date": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "fname",
+                    "lname",
+                    "addr",
+                    "city",
+                    "state",
+                    "country",
+                    "DOB",
+                    "date"
+                  ],
+                  "example": "fname"
+                },
+                "uniqueItems": true
+              }
+            ],
+            "title": "Info.Fields"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository#Filter<Info>"
+      },
+      "Info.Filter1": {
+        "type": "object",
+        "title": "Info.Filter",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "where": {
+            "title": "Info.WhereFilter",
+            "type": "object",
+            "additionalProperties": true
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "fname": {
+                    "type": "boolean"
+                  },
+                  "lname": {
+                    "type": "boolean"
+                  },
+                  "addr": {
+                    "type": "boolean"
+                  },
+                  "city": {
+                    "type": "boolean"
+                  },
+                  "state": {
+                    "type": "boolean"
+                  },
+                  "country": {
+                    "type": "boolean"
+                  },
+                  "DOB": {
+                    "type": "boolean"
+                  },
+                  "date": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "fname",
+                    "lname",
+                    "addr",
+                    "city",
+                    "state",
+                    "country",
+                    "DOB",
+                    "date"
+                  ],
+                  "example": "fname"
+                },
+                "uniqueItems": true
+              }
+            ],
+            "title": "Info.Fields"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository#Filter<Info>"
+      },
+      "PingResponse": {
+        "type": "object",
+        "title": "PingResponse",
+        "properties": {
+          "greeting": {
+            "type": "string"
+          },
+          "date": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          },
+          "headers": {
+            "type": "object",
+            "properties": {
+              "Content-Type": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": true
+          }
+        }
+      }
+    }
+  }
+}
